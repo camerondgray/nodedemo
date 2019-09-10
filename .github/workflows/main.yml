@@ -14,3 +14,7 @@ jobs:
         curl -L https://convox.com/cli/linux/convox -o /tmp/convox
         sudo mv /tmp/convox /usr/local/bin/convox
         sudo chmod 755 /usr/local/bin/convox
+    - name: Deploy
+      env:
+        deploy_key: ${{ secrets.CONVOX_DEPLOY_KEY}}
+      run: env CONVOX_HOST=console.convox.com CONVOX_PASSWORD=$deploy_key convox deploy
