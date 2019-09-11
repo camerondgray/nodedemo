@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: convox/actions/deploy@master
     - name: Deploy
+      uses: convox/actions/deploy@master
       env:
         CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY}}
         CONVOX_HOST: console.convox.com
