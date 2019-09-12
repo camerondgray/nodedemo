@@ -14,8 +14,8 @@ jobs:
       uses: convox/actions/deploy@master
       env:
         CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY}}
-        CONVOX_APP: nodedemo
       with:
         CONVOX_HOST: console.convox.com
         CONVOX_RACK: cgdemo/prod-demo
+        CONVOX_APP: nodedemo
 
