@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Checkout
+      uses: actions/checkout@v1
     - name: Deploy
       uses: convox/actions/deploy@master
       env:
