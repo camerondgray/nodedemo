@@ -10,12 +10,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Deploy
-      uses: convox/actions/deploy@master
+    - name: Build
+      uses: convox/actions/build@multipart
       env:
         CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY}}
       with:
         CONVOX_HOST: console.convox.com
         CONVOX_RACK: cgdemo/prod-demo
         CONVOX_APP: nodedemo
+          
 
