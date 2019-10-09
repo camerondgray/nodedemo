@@ -18,7 +18,11 @@ jobs:
         CONVOX_HOST: console.convox.com
         CONVOX_RACK: cgdemo/prod-demo
         CONVOX_APP: nodedemo
+    - name: Dump steps context
+      env:
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+      run: echo "$STEPS_CONTEXT"  
     - name: echo output
-      run: echo $release_id
+      run: echo "$release_id"
           
 
