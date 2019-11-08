@@ -21,4 +21,13 @@ jobs:
         CONVOX_APP: nodedemo
     - name: output
       run: echo "${{ steps.build.outputs.release_id }}"
+    - name: promote
+      uses: convox/actions/promote@multipart
+      env:
+        CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY}}
+      with:
+        CONVOX_HOST: console.convox.com
+        CONVOX_RACK: cgdemo/prod-demo
+        CONVOX_APP: nodedemo
+        RELASE_ID: ${{ steps.build.outputs.release_id }}"
 
