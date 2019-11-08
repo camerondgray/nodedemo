@@ -19,4 +19,5 @@ jobs:
         CONVOX_HOST: console.convox.com
         CONVOX_RACK: cgdemo/prod-demo
         CONVOX_APP: nodedemo
-
+    - name: Output
+      run: echo "release id is: ${{ steps.build.outputs.release_id }}"
