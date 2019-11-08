@@ -20,5 +20,5 @@ jobs:
         CONVOX_RACK: cgdemo/prod-demo
         CONVOX_APP: nodedemo
     - name: output
-      uses: actions/checkout@v1
+      run: echo "foo"
 
