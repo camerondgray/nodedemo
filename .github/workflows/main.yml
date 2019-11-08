@@ -28,7 +28,7 @@ jobs:
         CONVOX_RACK: cgdemo/prod-demo
         CONVOX_APP: nodedemo
         SERVICE: web
-        COMMAND: "node -v"
+        COMMAND: "echo $(date '+%m/%d/%Y %H:%M:%S')"
     - name: promote
       uses: convox/actions/promote@multipart
       env:
