@@ -20,5 +20,5 @@ jobs:
         CONVOX_RACK: cgdemo/prod-demo
         CONVOX_APP: nodedemo
     - name: output
-      run: echo "release id is: ${{ steps.build.outputs.release_id }}"
+      run: echo "${{ steps.build.outputs.release_id }}"
 
