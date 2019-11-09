@@ -13,30 +13,23 @@ jobs:
     - name: Build
       id: build
       uses: convox/actions/build@multipart
-      env:
-        CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY}}
       with:
-        CONVOX_HOST: console.convox.com
-        CONVOX_RACK: cgdemo/prod-demo
-        CONVOX_APP: nodedemo
+        passowrd: ${{ secrets.CONVOX_DEPLOY_KEY}}
+        rack: cgdemo/prod-demo
+        app: nodedemo
     - name: run
       uses: convox/actions/run@multipart
-      env:
-        CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY }}
       with:
-        CONVOX_HOST: console.convox.com
-        CONVOX_RACK: cgdemo/prod-demo
-        CONVOX_APP: nodedemo
-        RELEASE_ID: ${{ steps.build.outputs.release_id }}
-        SERVICE: web
-        COMMAND: "node -v"
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+        rack: cgdemo/prod-demo
+        app: nodedemo
+        release_id: ${{ steps.build.outputs.release_id }}
+        service: web
+        command: "node -v"
     - name: promote
       uses: convox/actions/promote@multipart
-      env:
-        CONVOX_PASSWORD: ${{ secrets.CONVOX_DEPLOY_KEY}}
       with:
-        CONVOX_HOST: console.convox.com
-        CONVOX_RACK: cgdemo/prod-demo
-        CONVOX_APP: nodedemo
-        RELEASE_ID: ${{ steps.build.outputs.release_id }}
-
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+        rack: cgdemo/prod-demo
+        app: nodedemo
+        release_id: ${{ steps.build.outputs.release_id }}
