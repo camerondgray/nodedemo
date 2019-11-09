@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
         rack: cgdemo/prod-demo
         app: nodedemo
-        release_id: ${{ steps.build.outputs.release }}
+        release: ${{ steps.build.outputs.release }}
         service: web
         command: "node -v"
     - name: promote
