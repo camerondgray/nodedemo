@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: checkout
       uses: actions/checkout@v1
-    - name: Build
+    - name: build
       id: build
       uses: convox/actions/build@multipart
       with:
@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
         rack: cgdemo/prod-demo
         app: nodedemo
-        release_id: ${{ steps.build.outputs.release_id }}
+        release_id: ${{ steps.build.outputs.release }}
         service: web
         command: "node -v"
     - name: promote
@@ -32,4 +32,4 @@ jobs:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
         rack: cgdemo/prod-demo
         app: nodedemo
-        release_id: ${{ steps.build.outputs.release_id }}
+        release: ${{ steps.build.outputs.release }}
