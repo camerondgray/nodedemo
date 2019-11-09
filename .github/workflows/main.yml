@@ -14,7 +14,7 @@ jobs:
       id: build
       uses: convox/actions/build@multipart
       with:
-        passowrd: ${{ secrets.CONVOX_DEPLOY_KEY}}
+        password: ${{ secrets.CONVOX_DEPLOY_KEY}}
         rack: cgdemo/prod-demo
         app: nodedemo
     - name: run
