@@ -10,11 +10,14 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v1
+    - name: login
+      uses: convox/actions/login@multipart
+      with:
+        password: ${{ secrets.CONVOX_DEPLOY_KEY}}
     - name: build
       id: build
       uses: convox/actions/build@multipart
       with:
-        password: ${{ secrets.CONVOX_DEPLOY_KEY}}
         rack: cgdemo/prod-demo
         app: nodedemo
     - name: run
