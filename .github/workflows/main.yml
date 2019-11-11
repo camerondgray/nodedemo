@@ -13,11 +13,23 @@ jobs:
     - name: login
       uses: convox/actions/login@multipart
       with:
-        password: ${{ secrets.CONVOX_DEPLOY_KEY}}
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+    - name: build
+      id: build
+      uses: convox/actions/build@multipart
+      with:
+        rack: cgdemo/prod-demo
+        app: nodedemo
     - name: run
       uses: convox/actions/run@multipart
       with:
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
         rack: cgdemo/prod-demo
         app: nodedemo
         service: web
         command: "node -v"
+    - name: promote
+      uses: convox/actions/promote@multipart
+      with:
+        rack: cgdemo/prod-demo
+        app: nodedemo
