@@ -14,22 +14,9 @@ jobs:
       uses: convox/actions/login@v1
       with:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
-    - name: build
+    - name: deploy
       id: build
-      uses: convox/actions/build@v1
-      with:
-        rack: cgdemo/prod-demo
-        app: nodedemo
-    - name: run
-      uses: convox/actions/run@v1
-      with:
-        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
-        rack: cgdemo/prod-demo
-        app: nodedemo
-        service: web
-        command: "node -v"
-    - name: promote
-      uses: convox/actions/promote@v1
+      uses: convox/actions/deploy@v1
       with:
         rack: cgdemo/prod-demo
         app: nodedemo
