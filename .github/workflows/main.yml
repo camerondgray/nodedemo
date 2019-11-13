@@ -4,19 +4,29 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     steps:
     - name: checkout
       uses: actions/checkout@v1
     - name: login
-      uses: convox/actions/login@v1
+      uses: convox/action-login@v1
       with:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
-    - name: deploy
-      id: build
-      uses: convox/actions/deploy@v1
+    - name: build
+      uses: convox/action-build@master
+      with:
+        rack: cgdemo/prod-demo
+        app: nodedemo
+    - name: migrate
+      uses: convox/action-run@v1
+      with:
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+        rack: cgdemo/prod-demo
+        app: nodedemo
+        service: web
+        command: "node -v"
+    - name: promote
+      uses: convox/action-promote@v1
       with:
         rack: cgdemo/prod-demo
         app: nodedemo
