@@ -25,11 +25,11 @@ jobs:
         rack: cgdemo/prod-demo
         app: nodedemo
         service: web
-        release: {{ steps.build.outputs.release }}
+        release: ${{ steps.build.outputs.release }}
         command: "node -v"
     - name: promote
       uses: convox/action-promote@master
       with:
         rack: cgdemo/prod-demo
         app: nodedemo
-        release: {{ steps.build.outputs.release }}
+        release: ${{ steps.build.outputs.release }}
