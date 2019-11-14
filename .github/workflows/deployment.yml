@@ -9,7 +9,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v1
     - name: Convox Deploy
-      uses: convox/action-deploy@v1
+      uses: convox/action-deploy@master
       with:
         rack: cgdemo/prod-demo
         app: nodedemo
