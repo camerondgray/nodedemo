@@ -1,4 +1,4 @@
-name: CI
+name: Convox Deploy
 
 on: [push]
 
