@@ -13,7 +13,7 @@ jobs:
       with:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
     - name: create
-      uses: convox/action-create@v1
+      uses: convox/action-create@master
       with:
         rack: cgdemo/prod-demo
         app: nodetest
@@ -39,7 +39,7 @@ jobs:
         app: nodetest
         release: ${{ steps.build.outputs.release }}
     - name: destroy
-      uses: convox/action-destroy@v1
+      uses: convox/action-destroy@master
       with:
         rack: cgdemo/prod-demo
         app: nodetest
