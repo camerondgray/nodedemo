@@ -12,21 +12,15 @@ jobs:
       uses: convox/action-login@v1
       with:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
-    - name: create
-      uses: convox/action-create@master
-      with:
-        rack: cgdemo/prod-demo
-        app: nodetest
     - name: build
       id: build
-      uses: convox/action-build@v1
+      uses: convox/action-build@master
       with:
         rack: cgdemo/prod-demo
         app: nodetest
     - name: migrate
       uses: convox/action-run@v1
       with:
-        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
         rack: cgdemo/prod-demo
         app: nodetest
         service: web
@@ -38,8 +32,3 @@ jobs:
         rack: cgdemo/prod-demo
         app: nodetest
         release: ${{ steps.build.outputs.release }}
-    - name: destroy
-      uses: convox/action-destroy@master
-      with:
-        rack: cgdemo/prod-demo
-        app: nodetest
