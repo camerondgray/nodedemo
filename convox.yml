@@ -1,9 +1,5 @@
-resources:
-  database:
-    type: redis
 services:
   web:
     build: .
     port: 3000
-    resources:
-      - database
+    domain: ${DOMAIN}
