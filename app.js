@@ -1,12 +1,16 @@
 var redis = require('redis')
 const express = require('express')
 const app = express()
-const port = 3000
+
+
+const port = process.env.PORT
+const service = process.env.SERVICE
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
 
 app.get('/', function(req, res){
-    res.send("hello review app");
+    console.log("service " + service + "received request")
+    res.send("hello from " + service);
 })
