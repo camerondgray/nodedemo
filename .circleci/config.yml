@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  convox: convox/orb@1.4.1
+workflows:
+  deploy:
+    jobs:
+      - deploy
+jobs:
+  deploy:
+    executor: convox/cli
+    steps:
+      - checkout
+      - convox/deploy:
+          rack: cgdemo/cg-gcp
+          app: nodedemo
