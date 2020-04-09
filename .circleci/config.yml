@@ -11,6 +11,6 @@ jobs:
     steps:
       - checkout
       - convox/deploy:
-          rack: cgdemo/do-test
+          rack: do-test
           app: nodedemo
           host: console.convox.com
