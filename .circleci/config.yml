@@ -13,3 +13,4 @@ jobs:
       - convox/deploy:
           rack: cgdemo/do-test
           app: nodedemo
+          host: console.convox.com
