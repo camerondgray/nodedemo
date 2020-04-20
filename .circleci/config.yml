@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
-  convox: convox/orb@dev:master
-workflows:
+  convox: convox/orb@1.4.2
   deploy:
     jobs:
       - deploy
