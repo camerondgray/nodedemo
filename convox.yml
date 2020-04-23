@@ -1,3 +1,6 @@
+resources:
+  database:
+    type: redis
 services:
   web:
     build: .
@@ -5,11 +8,13 @@ services:
     command: "npm run dev"
     environment:
       - PORT=3000
-    links:
-      - api
+    resources:
+      - database
   api:
     build: .
     port: 3001
     command: "npm run dev"
     environment:
      - PORT=3001
+    resources:
+      - database
