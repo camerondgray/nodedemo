@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - convox/deploy:
-          rack: do-test
+          rack: gcp
           app: nodedemo
-          host: console.convox.com
+      - convox/deploy:
+          rack: aws
+          app: nodedemo
+          

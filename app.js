@@ -1,25 +1,16 @@
-
 var redis = require('redis')
 const express = require('express')
 const app = express()
-const port = 3000
-var redis_url = process.env.DATABASE_URL
 
-var client = redis.createClient(redis_url)
 
-client.on("error", function (err) {
-    console.log("Error " + err);
-});
+const port = process.env.PORT
+const service = process.env.SERVICE
 
-client.on("connect", function(){
-    client.set("1", "Hello From Convox", redis.print)
-    app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-})
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
 
 
 app.get('/', function(req, res){
-    var response
-    client.get("1", function(error, result){
-        res.send(result)
-    })
+    console.log("service " + service + "received request")
+    res.send("Hello from Cameron \n \r");
 })
