@@ -12,5 +12,5 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 app.get('/', function(req, res){
     console.log("service " + service + "received request")
-    res.send("Hello World \n \r");
+    res.send("Hello from Convox and CircleCI \n \r");
 })
